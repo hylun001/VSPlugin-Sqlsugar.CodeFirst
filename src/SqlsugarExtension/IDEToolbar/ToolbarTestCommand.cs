@@ -5,15 +5,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using System.Diagnostics;
 using Task = System.Threading.Tasks.Task;
 
-namespace FirstMenuCommand
+namespace IDEToolbar
 {
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class FirstCommand
+    internal sealed class ToolbarTestCommand
     {
         /// <summary>
         /// Command ID.
@@ -23,7 +22,7 @@ namespace FirstMenuCommand
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("96c9894b-3547-47ba-8d92-72454eaeca5d");
+        public static readonly Guid CommandSet = new Guid("42f90b7d-454e-472d-adbe-f4bee9dcc756");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -31,35 +30,25 @@ namespace FirstMenuCommand
         private readonly AsyncPackage package;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FirstCommand"/> class.
+        /// Initializes a new instance of the <see cref="ToolbarTestCommand"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
         /// <param name="commandService">Command service to add command to, not null.</param>
-        private FirstCommand(AsyncPackage package, OleMenuCommandService commandService)
+        private ToolbarTestCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
-            // var menuItem = new MenuCommand(this.Execute, menuCommandID);
-            MenuCommand menuItem = new MenuCommand(this.StartNotepad, menuCommandID);
+            var menuItem = new MenuCommand(this.Execute, menuCommandID);
             commandService.AddCommand(menuItem);
-        }
-
-        private void StartNotepad(object sender, EventArgs e)
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-
-            Process proc = new Process();
-            proc.StartInfo.FileName = "notepad.exe";
-            proc.Start();
         }
 
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static FirstCommand Instance
+        public static ToolbarTestCommand Instance
         {
             get;
             private set;
@@ -82,12 +71,12 @@ namespace FirstMenuCommand
         /// <param name="package">Owner package, not null.</param>
         public static async Task InitializeAsync(AsyncPackage package)
         {
-            // Switch to the main thread - the call to AddCommand in FirstCommand's constructor requires
+            // Switch to the main thread - the call to AddCommand in ToolbarTestCommand's constructor requires
             // the UI thread.
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
-            Instance = new FirstCommand(package, commandService);
+            Instance = new ToolbarTestCommand(package, commandService);
         }
 
         /// <summary>
@@ -101,7 +90,7 @@ namespace FirstMenuCommand
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "FirstCommand";
+            string title = "ToolbarTestCommand";
 
             // Show a message box to prove we were here
             VsShellUtilities.ShowMessageBox(

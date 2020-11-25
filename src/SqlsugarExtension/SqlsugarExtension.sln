@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopLevelMenu", "TopLevelMen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstMenuCommand", "FirstMenuCommand\FirstMenuCommand.csproj", "{30B1698A-E046-47B8-AF1C-E4FAC0C4CF2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDEToolbar", "IDEToolbar\IDEToolbar.csproj", "{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{30B1698A-E046-47B8-AF1C-E4FAC0C4CF2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30B1698A-E046-47B8-AF1C-E4FAC0C4CF2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30B1698A-E046-47B8-AF1C-E4FAC0C4CF2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

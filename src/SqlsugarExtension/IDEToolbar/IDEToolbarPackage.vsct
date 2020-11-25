@@ -22,7 +22,7 @@
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
-  <Commands package="guidTopLevelMenuPackage">
+  <Commands package="guidIDEToolbarPackage">
     <!-- Inside this section we have different sub-sections: one for the menus, another
     for the menu groups, one for the buttons (the actual commands), one for the combos
     and the last one for the bitmaps used. Each element is identified by a command id that
@@ -37,19 +37,22 @@
          must be a menu. -->
 
     <Menus>
-      <Menu guid="guidTopLevelMenuPackageCmdSet" id="TopLevelMenu" priority="0x700" type="Menu">
-        <Parent guid="guidSHLMainMenu"
-                id="IDG_VS_MM_TOOLSADDINS" />
+      <Menu guid="guidIDEToolbarPackageCmdSet" id="Toolbar" type="Toolbar">
+        <CommandFlag>DefaultDocked</CommandFlag>
         <Strings>
-          <ButtonText>Test Menu</ButtonText>
+          <ButtonText>Test Toolbar</ButtonText>
+          <CommandName>Test Toolbar</CommandName>
         </Strings>
       </Menu>
     </Menus>
     
     <Groups>
-      <Group guid="guidTopLevelMenuPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <!--<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>-->
-        <Parent guid="guidTopLevelMenuPackageCmdSet" id="TopLevelMenu"/>
+      <Group guid="guidIDEToolbarPackageCmdSet" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+      </Group>
+      
+      <Group guid="guidIDEToolbarPackageCmdSet" id="ToolbarGroup" priority="0x0000">
+        <Parent guid="guidIDEToolbarPackageCmdSet" id="Toolbar"/>
       </Group>
     </Groups>
 
@@ -64,11 +67,13 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidTopLevelMenuPackageCmdSet" id="testcommandId" priority="0x0100" type="Button">
-        <Parent guid="guidTopLevelMenuPackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidIDEToolbarPackageCmdSet" id="ToolbarTestCommandId" priority="0x0100" type="Button">
+        <!--<Parent guid="guidIDEToolbarPackageCmdSet" id="MyMenuGroup" />-->
+        <Parent guid= "guidIDEToolbarPackageCmdSet" id="ToolbarGroup" />
+        <!--<Icon guid="guidImages" id="bmpPic1" />-->
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Test Command.</ButtonText>
+          <ButtonText>Invoke ToolbarTestCommand</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -80,23 +85,23 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\testcommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+      <Bitmap guid="guidImages" href="Resources\ToolbarTestCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
     </Bitmaps>
-
   </Commands>
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidTopLevelMenuPackage" value="{993d41ba-bcca-4eed-be2f-562cefd6b444}" />
+    <GuidSymbol name="guidIDEToolbarPackage" value="{d6541f3e-a42b-483b-a562-ba4433a32cf7}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidTopLevelMenuPackageCmdSet" value="{d7760452-6c36-4dcd-898f-9745e408e60f}">
+    <GuidSymbol name="guidIDEToolbarPackageCmdSet" value="{42f90b7d-454e-472d-adbe-f4bee9dcc756}">
+      <IDSymbol name="Toolbar" value="0x1000" />
+      <IDSymbol name="ToolbarGroup" value="0x1050" />
       <IDSymbol name="MyMenuGroup" value="0x1020" />
-      <IDSymbol name="testcommandId" value="0x0100" />
-      <IDSymbol name="TopLevelMenu" value="0x1021"/>
+      <IDSymbol name="ToolbarTestCommandId" value="0x0100" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{1296f363-a09b-4d47-8063-f77719aea858}" >
+    <GuidSymbol name="guidImages" value="{7f9714b4-1a8b-46a9-8a22-e93dc62c3031}" >
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
