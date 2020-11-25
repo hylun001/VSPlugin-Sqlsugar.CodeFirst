@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstMenuCommand", "FirstMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDEToolbar", "IDEToolbar\IDEToolbar.csproj", "{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlForm", "SqlForm\SqlForm.csproj", "{39031774-3E2A-4113-A1DF-300EA89108C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39031774-3E2A-4113-A1DF-300EA89108C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39031774-3E2A-4113-A1DF-300EA89108C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39031774-3E2A-4113-A1DF-300EA89108C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39031774-3E2A-4113-A1DF-300EA89108C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

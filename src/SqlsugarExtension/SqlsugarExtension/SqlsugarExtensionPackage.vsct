@@ -35,9 +35,20 @@
          other menus or buttons (commands); from a visual point of view you can see the
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
+
+    <Menus>
+      <Menu guid="guidSqlsugarExtensionPackageCmdSet" id="TopLevelMenu" priority="0x700" type="Menu">
+        <Parent guid="guidSHLMainMenu"
+                id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>Csy自用插件</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
+    
     <Groups>
       <Group guid="guidSqlsugarExtensionPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+        <Parent guid="guidSqlsugarExtensionPackageCmdSet" id="TopLevelMenu"/>
       </Group>
     </Groups>
 
@@ -54,9 +65,9 @@
           If you do not want an image next to your command, remove the Icon node /> -->
       <Button guid="guidSqlsugarExtensionPackageCmdSet" id="TestCommandId" priority="0x0100" type="Button">
         <Parent guid="guidSqlsugarExtensionPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidIconImages" id="sqlsugarIcon" />
         <Strings>
-          <ButtonText>Invoke TestCommand</ButtonText>
+          <ButtonText>Sqlsugar模型生成</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -69,6 +80,7 @@
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
       <Bitmap guid="guidImages" href="Resources\TestCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+      <Bitmap guid="guidIconImages" href="Resources\my.png" usedList="sqlsugarIcon"/>
     </Bitmaps>
   </Commands>
 
@@ -90,6 +102,10 @@
       <IDSymbol name="bmpPicX" value="4" />
       <IDSymbol name="bmpPicArrows" value="5" />
       <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidIconImages" value="{f2037e7e-974d-4b40-b981-4c943b682281}" >
+      <IDSymbol name="sqlsugarIcon" value="1" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

@@ -41,8 +41,17 @@ namespace SqlsugarExtension
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(this.Execute, menuCommandID);
+            //var menuItem = new MenuCommand(this.Execute, menuCommandID);
+            var menuItem = new MenuCommand(this.ShowSqlsugarForm, menuCommandID);
             commandService.AddCommand(menuItem);
+        }
+
+        private void ShowSqlsugarForm(object sender, EventArgs e)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
+            var form = new SqlForm.Form1();
+            form.Show();
         }
 
         /// <summary>
