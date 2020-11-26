@@ -82,7 +82,7 @@
       <Project>{9f0ea330-9d0a-4a95-ad8c-a7fb628bfada}</Project>
       <Name>SqlExtension.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SqlForm\SqlExtension.UI.csproj">
+    <ProjectReference Include="..\SqlExtension.UI\SqlExtension.UI.csproj">
       <Project>{39031774-3e2a-4113-a1df-300ea89108c9}</Project>
       <Name>SqlExtension.UI</Name>
     </ProjectReference>
