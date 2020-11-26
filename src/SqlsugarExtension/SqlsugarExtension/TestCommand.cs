@@ -50,7 +50,11 @@ namespace SqlsugarExtension
         {
             ThreadHelper.ThrowIfNotOnUIThread();
 
-            var form = new SqlForm.Form1();
+            ///
+            var list = Unit.SolutionProjects.GetProjects();
+            ///
+
+            var form = new SqlExtension.UI.Form1();
             form.Show();
         }
 

@@ -11,7 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstMenuCommand", "FirstMe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDEToolbar", "IDEToolbar\IDEToolbar.csproj", "{BFF400B5-73E8-4EC6-BC56-72A728BBC54B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlForm", "SqlForm\SqlForm.csproj", "{39031774-3E2A-4113-A1DF-300EA89108C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlExtension.UI", "SqlForm\SqlExtension.UI.csproj", "{39031774-3E2A-4113-A1DF-300EA89108C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VsCmdDemo", "VsCmdDemo", "{8A426BF7-7684-45FA-AE38-FAAEBE7C7451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlExtension.Models", "SqlExtension.Models\SqlExtension.Models.csproj", "{9F0EA330-9D0A-4A95-AD8C-A7FB628BFADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +43,18 @@ Global
 		{39031774-3E2A-4113-A1DF-300EA89108C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39031774-3E2A-4113-A1DF-300EA89108C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39031774-3E2A-4113-A1DF-300EA89108C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F0EA330-9D0A-4A95-AD8C-A7FB628BFADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0EA330-9D0A-4A95-AD8C-A7FB628BFADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0EA330-9D0A-4A95-AD8C-A7FB628BFADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0EA330-9D0A-4A95-AD8C-A7FB628BFADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{034309FA-6A64-4E50-A3A9-D45E04D29FEF} = {8A426BF7-7684-45FA-AE38-FAAEBE7C7451}
+		{30B1698A-E046-47B8-AF1C-E4FAC0C4CF2D} = {8A426BF7-7684-45FA-AE38-FAAEBE7C7451}
+		{BFF400B5-73E8-4EC6-BC56-72A728BBC54B} = {8A426BF7-7684-45FA-AE38-FAAEBE7C7451}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {782F1710-ABCA-47F2-BB2E-25034B35D8B1}

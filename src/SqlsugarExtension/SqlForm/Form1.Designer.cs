@@ -1,4 +1,4 @@
-﻿namespace SqlForm
+﻿namespace SqlExtension.UI
 {
     partial class Form1
     {

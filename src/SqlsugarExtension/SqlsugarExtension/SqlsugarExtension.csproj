@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlsugarExtensionPackage.cs" />
     <Compile Include="TestCommand.cs" />
+    <Compile Include="Unit\SolutionProjects.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest">
@@ -77,9 +78,13 @@
     <Content Include="Resources\my.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SqlForm\SqlForm.csproj">
+    <ProjectReference Include="..\SqlExtension.Models\SqlExtension.Models.csproj">
+      <Project>{9f0ea330-9d0a-4a95-ad8c-a7fb628bfada}</Project>
+      <Name>SqlExtension.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlForm\SqlExtension.UI.csproj">
       <Project>{39031774-3e2a-4113-a1df-300ea89108c9}</Project>
-      <Name>SqlForm</Name>
+      <Name>SqlExtension.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
