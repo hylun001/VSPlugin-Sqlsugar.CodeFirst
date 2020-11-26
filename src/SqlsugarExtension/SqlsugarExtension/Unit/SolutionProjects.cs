@@ -18,6 +18,10 @@ namespace SqlsugarExtension.Unit
             return dte2;
         }
 
+        /// <summary>
+        /// 获取当前vs解决方案中的全部项目
+        /// </summary>
+        /// <returns></returns>
         public static List<SqlExtension.Models.ProjectDto> GetProjects()
         {
             Projects projects = GetActiveIDE().Solution.Projects;
@@ -45,6 +49,9 @@ namespace SqlsugarExtension.Unit
                 ProjectName = a.Name,
                 ProjectFullPath = a.FileName
             }).ToList();
+
+            projectList = projectList.Where(a => !a.ProjectFullPath.IsNullOrWhiteSpace()).ToList();
+
             return projectList;
         }
 

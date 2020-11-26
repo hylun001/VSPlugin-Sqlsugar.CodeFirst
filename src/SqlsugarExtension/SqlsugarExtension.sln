@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlsugarDemo", "..\Sqlsugar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Entitys", "..\SqlsugarDemo\Demo.Entitys\Demo.Entitys.csproj", "{032B33B8-623E-456E-A262-9A56E16D2337}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlExtension.Core", "SqlExtension.Core\SqlExtension.Core.csproj", "{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{032B33B8-623E-456E-A262-9A56E16D2337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{032B33B8-623E-456E-A262-9A56E16D2337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{032B33B8-623E-456E-A262-9A56E16D2337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
