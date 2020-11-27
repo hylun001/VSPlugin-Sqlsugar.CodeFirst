@@ -32,6 +32,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxDbProject = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.folderBrowserDialogOutput = new System.Windows.Forms.FolderBrowserDialog();
+            this.button2 = new System.Windows.Forms.Button();
+            this.labelOutputDir = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -61,6 +64,7 @@
             this.comboBoxDbProject.Name = "comboBoxDbProject";
             this.comboBoxDbProject.Size = new System.Drawing.Size(937, 20);
             this.comboBoxDbProject.TabIndex = 2;
+            this.comboBoxDbProject.SelectedIndexChanged += new System.EventHandler(this.comboBoxDbProject_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -71,11 +75,32 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Db实体模型输出";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(25, 90);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "选择目录";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // labelOutputDir
+            // 
+            this.labelOutputDir.AutoSize = true;
+            this.labelOutputDir.Location = new System.Drawing.Point(107, 90);
+            this.labelOutputDir.Name = "labelOutputDir";
+            this.labelOutputDir.Size = new System.Drawing.Size(59, 12);
+            this.labelOutputDir.TabIndex = 5;
+            this.labelOutputDir.Text = "fileLabel";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 721);
+            this.Controls.Add(this.labelOutputDir);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxDbProject);
             this.Controls.Add(this.textBox1);
@@ -94,6 +119,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBoxDbProject;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogOutput;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label labelOutputDir;
     }
 }
 

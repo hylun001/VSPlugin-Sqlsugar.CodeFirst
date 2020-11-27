@@ -46,5 +46,25 @@ namespace SqlExtension.UI
         {
             MessageBox.Show("hello word");
         }
+
+        private void comboBoxDbProject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var path = (comboBoxDbProject.SelectedItem as ProjectDto)?.ProjectFullPath;
+            this.labelOutputDir.Text = path;
+
+            if (!path.IsNullOrWhiteSpace())
+            {
+                this.folderBrowserDialogOutput.SelectedPath = System.IO.Path.GetDirectoryName(path);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = folderBrowserDialogOutput.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                this.labelOutputDir.Text = folderBrowserDialogOutput.SelectedPath;
+            }
+        }
     }
 }
