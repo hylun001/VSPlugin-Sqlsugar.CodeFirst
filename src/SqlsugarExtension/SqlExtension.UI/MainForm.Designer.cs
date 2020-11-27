@@ -36,6 +36,9 @@
             this.folderBrowserDialogOutput = new System.Windows.Forms.FolderBrowserDialog();
             this.button2 = new System.Windows.Forms.Button();
             this.labelOutputDir = new System.Windows.Forms.Label();
+            this.txtConnstring = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxStartProject = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
@@ -51,27 +54,28 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 188);
+            this.textBox1.Location = new System.Drawing.Point(12, 417);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1419, 405);
+            this.textBox1.Size = new System.Drawing.Size(1416, 104);
             this.textBox1.TabIndex = 1;
             // 
             // comboBoxDbProject
             // 
+            this.comboBoxDbProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDbProject.FormattingEnabled = true;
-            this.comboBoxDbProject.Location = new System.Drawing.Point(143, 74);
+            this.comboBoxDbProject.Location = new System.Drawing.Point(136, 171);
             this.comboBoxDbProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDbProject.Name = "comboBoxDbProject";
-            this.comboBoxDbProject.Size = new System.Drawing.Size(1248, 23);
+            this.comboBoxDbProject.Size = new System.Drawing.Size(590, 23);
             this.comboBoxDbProject.TabIndex = 2;
             this.comboBoxDbProject.SelectedIndexChanged += new System.EventHandler(this.comboBoxDbProject_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 78);
+            this.label1.Location = new System.Drawing.Point(9, 175);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 15);
@@ -80,7 +84,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(33, 112);
+            this.button2.Location = new System.Drawing.Point(26, 209);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 29);
@@ -92,18 +96,51 @@
             // labelOutputDir
             // 
             this.labelOutputDir.AutoSize = true;
-            this.labelOutputDir.Location = new System.Drawing.Point(151, 119);
+            this.labelOutputDir.Location = new System.Drawing.Point(144, 216);
             this.labelOutputDir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOutputDir.Name = "labelOutputDir";
             this.labelOutputDir.Size = new System.Drawing.Size(79, 15);
             this.labelOutputDir.TabIndex = 5;
             this.labelOutputDir.Text = "fileLabel";
             // 
+            // txtConnstring
+            // 
+            this.txtConnstring.Location = new System.Drawing.Point(136, 49);
+            this.txtConnstring.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtConnstring.Multiline = true;
+            this.txtConnstring.Name = "txtConnstring";
+            this.txtConnstring.Size = new System.Drawing.Size(1266, 72);
+            this.txtConnstring.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 24);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "项目配置";
+            // 
+            // comboBoxStartProject
+            // 
+            this.comboBoxStartProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxStartProject.FormattingEnabled = true;
+            this.comboBoxStartProject.Location = new System.Drawing.Point(136, 20);
+            this.comboBoxStartProject.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxStartProject.Name = "comboBoxStartProject";
+            this.comboBoxStartProject.Size = new System.Drawing.Size(594, 23);
+            this.comboBoxStartProject.TabIndex = 7;
+            this.comboBoxStartProject.SelectedIndexChanged += new System.EventHandler(this.comboBoxStartProject_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1561, 901);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBoxStartProject);
+            this.Controls.Add(this.txtConnstring);
             this.Controls.Add(this.labelOutputDir);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
@@ -128,6 +165,9 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogOutput;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label labelOutputDir;
+        private System.Windows.Forms.TextBox txtConnstring;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxStartProject;
     }
 }
 
