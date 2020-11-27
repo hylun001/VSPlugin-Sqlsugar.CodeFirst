@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxDbProject = new System.Windows.Forms.ComboBox();
@@ -39,10 +40,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(376, 496);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(501, 620);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 18);
+            this.button1.Size = new System.Drawing.Size(75, 22);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -50,36 +51,39 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 150);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Location = new System.Drawing.Point(15, 188);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1065, 325);
+            this.textBox1.Size = new System.Drawing.Size(1419, 405);
             this.textBox1.TabIndex = 1;
             // 
             // comboBoxDbProject
             // 
             this.comboBoxDbProject.FormattingEnabled = true;
-            this.comboBoxDbProject.Location = new System.Drawing.Point(107, 59);
+            this.comboBoxDbProject.Location = new System.Drawing.Point(143, 74);
+            this.comboBoxDbProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxDbProject.Name = "comboBoxDbProject";
-            this.comboBoxDbProject.Size = new System.Drawing.Size(937, 20);
+            this.comboBoxDbProject.Size = new System.Drawing.Size(1248, 23);
             this.comboBoxDbProject.TabIndex = 2;
             this.comboBoxDbProject.SelectedIndexChanged += new System.EventHandler(this.comboBoxDbProject_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 62);
+            this.label1.Location = new System.Drawing.Point(16, 78);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.Size = new System.Drawing.Size(113, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "Db实体模型输出";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(25, 90);
+            this.button2.Location = new System.Drawing.Point(33, 112);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(100, 29);
             this.button2.TabIndex = 4;
             this.button2.Text = "选择目录";
             this.button2.UseVisualStyleBackColor = true;
@@ -88,26 +92,28 @@
             // labelOutputDir
             // 
             this.labelOutputDir.AutoSize = true;
-            this.labelOutputDir.Location = new System.Drawing.Point(107, 90);
+            this.labelOutputDir.Location = new System.Drawing.Point(151, 119);
+            this.labelOutputDir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOutputDir.Name = "labelOutputDir";
-            this.labelOutputDir.Size = new System.Drawing.Size(59, 12);
+            this.labelOutputDir.Size = new System.Drawing.Size(79, 15);
             this.labelOutputDir.TabIndex = 5;
             this.labelOutputDir.Text = "fileLabel";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1171, 721);
+            this.ClientSize = new System.Drawing.Size(1561, 901);
             this.Controls.Add(this.labelOutputDir);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxDbProject);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "MainForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

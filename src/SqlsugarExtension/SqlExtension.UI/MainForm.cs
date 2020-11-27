@@ -44,17 +44,26 @@ namespace SqlExtension.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("hello word");
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = true;//该值确定是否可以选择多个文件
+            // dialog.Title = "请选择文件夹";
+            dialog.Filter = "所有文件(*.*)|*.*";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string file = dialog.FileName;
+                MessageBox.Show(file);
+            }
         }
 
         private void comboBoxDbProject_SelectedIndexChanged(object sender, EventArgs e)
         {
             var path = (comboBoxDbProject.SelectedItem as ProjectDto)?.ProjectFullPath;
-            this.labelOutputDir.Text = path;
 
             if (!path.IsNullOrWhiteSpace())
             {
-                this.folderBrowserDialogOutput.SelectedPath = System.IO.Path.GetDirectoryName(path);
+                var dir = System.IO.Path.GetDirectoryName(path); 
+                this.labelOutputDir.Text = dir;
+                this.folderBrowserDialogOutput.SelectedPath = dir;
             }
         }
 

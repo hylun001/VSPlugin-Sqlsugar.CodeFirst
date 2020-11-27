@@ -93,8 +93,10 @@
       <Name>SqlExtension.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
+    <Content Include="Resource\favicon.ico" />
+    <Content Include="Resource\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
