@@ -8,8 +8,8 @@ namespace SqlExtension.Models
 {
     public class ProjectDto
     {
-        public string ProjectName;
+        public string ProjectName { get; set; }
 
-        public string ProjectFullPath;
+        public string ProjectFullPath { get; set; }
     }
 }

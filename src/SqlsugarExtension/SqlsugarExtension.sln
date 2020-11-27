@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DemoWebProject", "DemoWebPr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlsugarDemo", "..\SqlsugarDemo\SqlsugarDemo\SqlsugarDemo.csproj", "{37FA6AF7-8685-4EF3-B5F8-7555CE3893D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Entitys", "..\SqlsugarDemo\Demo.Entitys\Demo.Entitys.csproj", "{032B33B8-623E-456E-A262-9A56E16D2337}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.SugarEntities", "..\SqlsugarDemo\Demo.Entitys\Demo.SugarEntities.csproj", "{032B33B8-623E-456E-A262-9A56E16D2337}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlExtension.Core", "SqlExtension.Core\SqlExtension.Core.csproj", "{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}"
 EndProject

@@ -54,7 +54,7 @@ namespace SqlsugarExtension
             var list = Unit.SolutionProjects.GetProjects();
             ///
 
-            var form = new SqlExtension.UI.Form1(new SqlExtension.Models.OpenFormDto { 
+            var form = new SqlExtension.UI.MainForm(new SqlExtension.Models.OpenFormDto { 
                 ProjectList = list
             });
             form.Show();
