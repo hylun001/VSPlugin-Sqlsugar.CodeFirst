@@ -113,5 +113,18 @@ namespace SqlExtension.UI
 
             this.txtConnstring.Text = match.Value;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var connStr = this.txtConnstring;
+            if (!DbUnity.DbSqlUnity.CheckConnectionStringValid(connStr))
+            {
+
+            }
+            else
+            {
+                MessageBox.Show();
+            }
+        }
     }
 }

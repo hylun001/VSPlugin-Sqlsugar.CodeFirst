@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.SugarEntities", "..\Sq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlExtension.Core", "SqlExtension.Core\SqlExtension.Core.csproj", "{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlExtension.DbUnity", "SqlExtension.DbUnity\SqlExtension.DbUnity.csproj", "{F4DD2D51-8C5C-4E23-B479-69182253D390}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78E407F4-AD86-4E6B-8D23-BE653B72FDCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4DD2D51-8C5C-4E23-B479-69182253D390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4DD2D51-8C5C-4E23-B479-69182253D390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4DD2D51-8C5C-4E23-B479-69182253D390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4DD2D51-8C5C-4E23-B479-69182253D390}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

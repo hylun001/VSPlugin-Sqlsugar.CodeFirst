@@ -39,6 +39,7 @@
             this.txtConnstring = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxStartProject = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -66,7 +67,7 @@
             this.comboBoxDbProject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDbProject.FormattingEnabled = true;
             this.comboBoxDbProject.Location = new System.Drawing.Point(136, 171);
-            this.comboBoxDbProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDbProject.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDbProject.Name = "comboBoxDbProject";
             this.comboBoxDbProject.Size = new System.Drawing.Size(590, 23);
             this.comboBoxDbProject.TabIndex = 2;
@@ -85,7 +86,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(26, 209);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 29);
             this.button2.TabIndex = 4;
@@ -109,7 +110,7 @@
             this.txtConnstring.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtConnstring.Multiline = true;
             this.txtConnstring.Name = "txtConnstring";
-            this.txtConnstring.Size = new System.Drawing.Size(1266, 72);
+            this.txtConnstring.Size = new System.Drawing.Size(1158, 72);
             this.txtConnstring.TabIndex = 6;
             // 
             // label2
@@ -133,11 +134,22 @@
             this.comboBoxStartProject.TabIndex = 7;
             this.comboBoxStartProject.SelectedIndexChanged += new System.EventHandler(this.comboBoxStartProject_SelectedIndexChanged);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1330, 66);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "连接数据库";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1561, 901);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxStartProject);
             this.Controls.Add(this.txtConnstring);
@@ -168,6 +180,7 @@
         private System.Windows.Forms.TextBox txtConnstring;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxStartProject;
+        private System.Windows.Forms.Button button3;
     }
 }
 

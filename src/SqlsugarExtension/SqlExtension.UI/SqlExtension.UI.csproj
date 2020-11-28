@@ -88,6 +88,10 @@
       <Project>{78e407f4-ad86-4e6b-8d23-be653b72fdca}</Project>
       <Name>SqlExtension.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SqlExtension.DbUnity\SqlExtension.DbUnity.csproj">
+      <Project>{f4dd2d51-8c5c-4e23-b479-69182253d390}</Project>
+      <Name>SqlExtension.DbUnity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SqlExtension.Models\SqlExtension.Models.csproj">
       <Project>{9f0ea330-9d0a-4a95-ad8c-a7fb628bfada}</Project>
       <Name>SqlExtension.Models</Name>
