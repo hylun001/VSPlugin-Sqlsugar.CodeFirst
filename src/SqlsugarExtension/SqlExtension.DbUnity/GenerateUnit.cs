@@ -53,6 +53,28 @@ namespace SqlExtension.DbUnity
                         return order;
                     }).ToList();
                 }
+                #endregion
+
+                #region 调整字段类型
+                {
+                    var sql = $@"
+                        select *
+                        from {schema}.{table}
+                        where 1=2";
+                    var dt = _db.Ado.GetDataTable(sql, new { });
+                    //columnInfos.ForEach(item =>
+                    //{
+                    //    item.DataType = dt item.DbColumnName
+                    //});
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        var matchCol = columnInfos.FirstOrDefault(a => a.DbColumnName == col.ColumnName);
+                        if (matchCol != null)
+                        {
+                            matchCol.PropertyType = col.DataType;
+                        }
+                    }
+                }
                 #endregion 
 
                 var nameLower = table.ToLower();
@@ -82,7 +104,9 @@ namespace SqlExtension.DbUnity
             string classText;
 
             classText = ModelTemplate.ClassTemplate;
-          
+
+            classText = classText.Replace(ModelTemplate.KeyTimeSpan, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
             classText = classText.Replace(ModelTemplate.KeyClassName, tableInfo.Name.ToLargeCamelCase());
             classText = classText.Replace(ModelTemplate.KeyNamespace, _namespace);
             classText = classText.Replace(ModelTemplate.KeyUsing, ModelTemplate.UsingTemplate);
@@ -147,18 +171,12 @@ namespace SqlExtension.DbUnity
 
         private string GetPropertyTypeName(DbColumnInfo item)
         {
-            string result = item.PropertyType != null ? item.PropertyType.Name : _db.Ado.DbBind.GetPropertyTypeName(item.DataType);
-            if (result != "string" && result != "byte[]" && result != "object" && item.IsNullable)
+            string result = item.PropertyType != null ? item.PropertyType.FullName : _db.Ado.DbBind.GetPropertyTypeName(item.DataType);
+
+            string[] nullType = { "string", "byte[]", "object" };
+            if (item.IsNullable && !item.PropertyType.IsClass)// nullType.Contains(result.ToLower()))
             {
                 result += "?";
-            }
-            if (result == "Int32")
-            {
-                result = "int";
-            }
-            if (result == "String")
-            {
-                result = "string";
             }
             return result;
         }

@@ -9,7 +9,7 @@ namespace SqlExtension.DbUnity
     {
         #region Template
         public static string ClassTemplate = @"/**
-*** 该模型类由代码生成工具生成
+*** 该模型类由代码生成工具生成 {TimeSpan}
 **/ 
 {using}
 
@@ -58,6 +58,7 @@ using SqlSugar;";
         public const string KeyDefaultValue = "{DefaultValue}";
         public const string KeyClassDescription = "{ClassDescription}";
         public const string KeyPropertyDescription = "{PropertyDescription}";
+        public const string KeyTimeSpan = "{TimeSpan}";
         #endregion
 
         #region Replace Value
