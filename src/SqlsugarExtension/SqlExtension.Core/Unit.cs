@@ -29,4 +29,22 @@ public static class Unit
         var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(jsonString);
         return obj;
     }
+
+    /// <summary>
+    /// 判断是否包含危险字符
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public static bool IsDangeString(this string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return false;
+        }
+
+        var dangerStrArr = new List<string> { ".", "'", "--", "#", ";", "\"" };
+
+        var isDanger = dangerStrArr.Exists(a => input.Contains(a));
+        return isDanger;
+    }
 }

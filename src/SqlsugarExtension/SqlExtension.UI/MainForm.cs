@@ -44,7 +44,7 @@ namespace SqlExtension.UI
         {
             CurFormData = dto;
 
-            this.textBox1.Text = dto.ToJsonString(true);
+            this.txtModelString.Text = dto.ToJsonString(true);
         }
 
 
@@ -116,15 +116,34 @@ namespace SqlExtension.UI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var connStr = this.txtConnstring;
-            if (!DbUnity.DbSqlUnity.CheckConnectionStringValid(connStr))
+            var connStr = this.txtConnstring.Text;
+            if (!DbUnity.DbSqlUnity.CheckConnectionStringValid(connStr, out string msg))
             {
-
+                ShowMsg(msg);
             }
             else
             {
-                MessageBox.Show();
+                BindDatabaseList(connStr);
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeDb_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            LoadTableNodes(e.Node);
+        }
+
+        private void treeDb_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void treeDb_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            CreateEntityModelString(e.Node);
         }
     }
 }

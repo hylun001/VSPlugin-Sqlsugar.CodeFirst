@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SqlExtension.Models;
 using SqlSugar;
 
 namespace SqlExtension.DbUnity
@@ -52,6 +53,51 @@ namespace SqlExtension.DbUnity
                 errMsg = e.ToString();
                 return false;
             }
+        }
+    
+        public static List<Models.DatabaseModel> GetDatabaseList(string connStr)
+        {
+            var db = GetSqlClient(connStr);
+
+            var ignores = new string[] { "information_schema", "mysql", "performance_schema", "sys" };
+            var databaseList = db.Context.DbMaintenance.GetDataBaseList(db);
+
+            databaseList = databaseList.Where(a => !ignores.Contains(a)).OrderBy(a => a).ToList();
+
+            var dbList = databaseList.Select(a => new Models.DatabaseModel
+            {
+                DatabaseName = a
+            }).ToList();
+            
+            return dbList;
+        }
+
+        public static List<DbTableDto> GetTables(string schema, SqlSugarClient db)
+        {
+            if (schema.IsDangeString())
+            {
+                throw new Exception($"危险字符【{schema}】");
+            }
+
+            db.BeginTran(); // 为了让后面的 use起作用
+            db.Ado.ExecuteCommand("use " + schema);
+
+            db.DbFirst.Init();
+
+            var dbTables = db.Context.DbMaintenance.GetTableInfoList(false);
+            db.CommitTran();
+            var list = dbTables.Select(a => new DbTableDto
+            {
+                Name = a.Name,
+                Description = a.Description
+            }).OrderBy(a => a.Name).ToList();
+            return list;
+        }
+
+        public static List<DbTableDto> GetTables(string schema, string connStr)
+        {
+            var db = GetSqlClient(connStr);
+            return GetTables(schema, db);
         }
     }
 }
