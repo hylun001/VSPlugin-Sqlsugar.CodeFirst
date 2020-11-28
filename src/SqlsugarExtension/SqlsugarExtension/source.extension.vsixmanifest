@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="SqlsugarExtension.21ad0b20-9820-43f8-88c4-7b6635c732df" Version="1.0.2" Language="zh-CN" Publisher="Chensy" />
+        <Identity Id="SqlsugarExtension.21ad0b20-9820-43f8-88c4-7b6635c732df" Version="1.0.3" Language="zh-CN" Publisher="Chensy" />
         <DisplayName>SqlsugarExtension</DisplayName>
         <Description xml:space="preserve">Sqlsugar插件，用来生成数据库实体模型</Description>
         <Icon>favicon.ico</Icon>

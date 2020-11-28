@@ -39,15 +39,15 @@ namespace SqlExtension.UI
             }
 
             InitializeComponent();
-
             InitUIComponent();
         }
 
-        public MainForm(OpenFormDto dto) : this()
+        public MainForm(OpenFormDto dto)
         {
             CurFormData = dto;
 
-            // this.txtModelString.Text = dto.ToJsonString(true);
+            InitializeComponent();
+            InitUIComponent();
         }
 
 
