@@ -28,7 +28,7 @@ namespace {Namespace}
                                                 ClassSpace + "/// {ClassDescription}\r\n" +
                                                 ClassSpace + "/// </summary>\r\n";
 
-        public static string PropertyTemplate = "{SugarColumn}{QsColumn}" +
+        public static string PropertyTemplate = "{SugarColumn}" +
                                                 PropertySpace + "public {PropertyType} {PropertyName} { get; set; }\r\n";
 
         public static string PropertyDescriptionTemplate =
@@ -41,8 +41,7 @@ namespace {Namespace}
         public static string UsingTemplate = @"using System;
 using System.Linq;
 using System.Text;
-using SqlSugar;
-using QueryShooter;";
+using SqlSugar;";
 
         #endregion
 
@@ -59,8 +58,6 @@ using QueryShooter;";
         public const string KeyDefaultValue = "{DefaultValue}";
         public const string KeyClassDescription = "{ClassDescription}";
         public const string KeyPropertyDescription = "{PropertyDescription}";
-
-        public const string KeyQueryShooterColumn = "{QsColumn}";
         #endregion
 
         #region Replace Value

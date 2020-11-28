@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
 using SqlSugar;
@@ -34,19 +35,37 @@ namespace SqlExtension.DbUnity
                 _db.Ado.ExecuteCommand($"use {schema}");
 
                 var tableInfoList = dbProvider.Context.DbMaintenance.GetTableInfoList(false);
-                var columnInfo = dbProvider.Context.DbMaintenance.GetColumnInfosByTableName(table, false);
+                var columnInfos = dbProvider.Context.DbMaintenance.GetColumnInfosByTableName(table, false);
+
+                #region 调整列的排序
+                {
+                    var colSql = $@"
+                        select TABLE_SCHEMA,TABLE_NAME,	COLUMN_NAME,ORDINAL_POSITION 
+                        from information_schema.`COLUMNS` 
+                        where TABLE_SCHEMA='{schema}' and TABLE_NAME='{table}'
+                        order by ORDINAL_POSITION";
+                    var colDt = _db.Ado.GetDataTable(colSql, new { });
+                    var rows = colDt.Rows.Cast<DataRow>().ToList();
+                    columnInfos = columnInfos.OrderBy(a =>
+                    {
+                        var curRow = rows.Where(b => b["COLUMN_NAME"].ToString() == a.DbColumnName).First();
+                        var order = Convert.ToInt32(curRow["ORDINAL_POSITION"]);
+                        return order;
+                    }).ToList();
+                }
+                #endregion 
 
                 var nameLower = table.ToLower();
                 var tableInfo = tableInfoList.FirstOrDefault(a => a.Name.ToLower() == nameLower);
 
-                if (tableInfo == null || columnInfo.Count <= 0)
+                if (tableInfo == null || columnInfos.Count <= 0)
                 {
                     return "";
                 }
 
                 var match = dbProvider.Where(table);
 
-                var codeStr = GetQsModelString(tableInfo, columnInfo, schema, table);
+                var codeStr = GetDbModelString(tableInfo, columnInfos, schema, table);
                 return codeStr;
             }
             catch(Exception e)
@@ -58,7 +77,7 @@ namespace SqlExtension.DbUnity
         }
 
 
-        internal string GetQsModelString(DbTableInfo tableInfo, List<DbColumnInfo> columns, string schema, string table)
+        internal string GetDbModelString(DbTableInfo tableInfo, List<DbColumnInfo> columns, string schema, string table)
         {
             string classText;
 
@@ -87,7 +106,7 @@ namespace SqlExtension.DbUnity
                     propertyText = PropertyDescriptionText + propertyText;
 
                     // 对Queryshooter的单表查询model列，生成列特性
-                    propertyText = FixQueryShooterColumnText(item, propertyText);
+                    //propertyText = FixQueryShooterColumnText(item, propertyText);
 
                     classText = classText.Replace(ModelTemplate.KeyPropertyName, propertyText + (isLast ? "" : ("\r\n" + ModelTemplate.KeyPropertyName)));
                 }
@@ -123,34 +142,6 @@ namespace SqlExtension.DbUnity
             propertyText = propertyText.Replace(ModelTemplate.KeySugarColumn, SugarColumnText);
             propertyText = propertyText.Replace(ModelTemplate.KeyPropertyType, typeString);
             propertyText = propertyText.Replace(ModelTemplate.KeyPropertyName, propertyName);
-            return propertyText;
-        }
-
-        // todo csy 等引入正式项目，需要进行微调
-        private string FixQueryShooterColumnText(DbColumnInfo item, string propertyText)
-        {
-            var qsColumnText = "";
-            var labelStrArr = new List<string>();
-
-            if (item.DataType.ToLower().Contains("int") &&
-                (item.DbColumnName.EndsWith("Id") || item.DbColumnName.EndsWith("ID")))
-            {
-                qsColumnText += ModelTemplate.PropertySpace + "[DBColumnCrypt]\r\n";
-                labelStrArr.Add("IsFilter = false");
-            }
-            else
-            {
-                labelStrArr.Add("IsFilter = true");
-            }
-
-            if (!string.IsNullOrWhiteSpace(item.ColumnDescription))
-            {
-                labelStrArr.Add($"Description = \"{ GetColumnDescription(item.ColumnDescription)}\"");
-            }
-            var labelString = string.Join(", ", labelStrArr);
-            qsColumnText += ModelTemplate.PropertySpace + $"[QueryLabel({labelString})]\r\n";
-
-            propertyText = propertyText.Replace(ModelTemplate.KeyQueryShooterColumn, qsColumnText);
             return propertyText;
         }
 
