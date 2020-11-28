@@ -58,6 +58,8 @@ namespace SqlExtension.UI
         }
 
         private string curValidConnStr = "";
+        private string curDatabase = "";
+        private string curTable = "";
         private void BindDatabaseList(string connStr)
         {
             var databaseList = DbUnity.DbSqlUnity.GetDatabaseList(connStr);
@@ -109,10 +111,26 @@ namespace SqlExtension.UI
                 return;
             }
 
-            var dic = labelOutputDir.Text;
-            var nameSpace = dic.Substring(dic.LastIndexOf("\\") + 1);
+            var dir = labelOutputDir.Text;
+            var nameSpace = dir.Substring(dir.LastIndexOf("\\") + 1);
             var gen = new DbUnity.GenerateUnit(curValidConnStr, nameSpace);
             this.txtModelString.Text = gen.GenerateSingleQsModel(dbNode.Parent.Text, dbNode.Name);
+
+            curDatabase = dbNode.Parent.Text;
+            curTable = dbNode.Name;
+        }
+
+        /// <summary>
+        /// 保持模型文件
+        /// </summary>
+        private void SaveEntityFile(string dir, string database, string table)
+        {
+            var nameSpace = dir.Substring(dir.LastIndexOf("\\") + 1);
+            var gen = new DbUnity.GenerateUnit(curValidConnStr, nameSpace);
+            var fileContent = gen.GenerateSingleQsModel(database, table);
+
+            var fullName = Path.Combine(dir, $"{table.ToLargeCamelCase()}.cs");
+            File.WriteAllText(fullName, fileContent);
         }
 
         private void ShowMsg(string msg)

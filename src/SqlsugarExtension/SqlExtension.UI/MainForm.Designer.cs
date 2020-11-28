@@ -43,11 +43,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.treeDb = new System.Windows.Forms.TreeView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1526, 172);
+            this.button1.Location = new System.Drawing.Point(1543, 172);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 22);
@@ -160,11 +162,34 @@
             this.treeDb.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeDb_NodeMouseClick);
             this.treeDb.Click += new System.EventHandler(this.treeDb_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(1532, 436);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(86, 76);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "生成当前模型文件";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1532, 569);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(86, 76);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "生成已勾选模型文件";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1641, 1068);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.treeDb);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
@@ -201,6 +226,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TreeView treeDb;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 

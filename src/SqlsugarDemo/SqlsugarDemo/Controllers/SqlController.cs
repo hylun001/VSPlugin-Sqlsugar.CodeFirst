@@ -46,7 +46,8 @@ namespace SqlsugarDemo.Controllers
             var db = GetSqlClient();
             var dt = db.Ado.GetDataTable("select * from ba_my_table_001", new { });
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(dt); 
+            var list = db.Queryable<Demo.Entitys.BaMyTable001>().ToList();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(new { dt, list }); 
         }
     }
 }

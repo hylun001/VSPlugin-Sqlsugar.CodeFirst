@@ -32,7 +32,7 @@ namespace SqlExtension.UI
             CurFormData.ProjectList.Add(new ProjectDto
             {
                 ProjectName = "Demo.SugarEntities",
-                ProjectFullPath = @"E:\demo\SqlsugarVsExtension\src\SqlsugarDemo\Demo.Entitys\Demo.SugarEntities.csproj"
+                ProjectFullPath = @"F:\MyCode\SqlsugarVsExtension\src\SqlsugarDemo\Demo.Entitys\Demo.SugarEntities.csproj"
             });
 
             InitializeComponent();
@@ -144,6 +144,19 @@ namespace SqlExtension.UI
         private void treeDb_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             CreateEntityModelString(e.Node);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(this.labelOutputDir.Text.IsNullOrWhiteSpace()||
+                curDatabase.IsNullOrWhiteSpace()||
+                curTable.IsNullOrWhiteSpace())
+            {
+                ShowMsg("时机未到");
+                return;
+            }
+            SaveEntityFile(this.labelOutputDir.Text, curDatabase, curTable);
+            ShowMsg("生成单个文件完成");
         }
     }
 }
