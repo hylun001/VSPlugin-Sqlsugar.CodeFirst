@@ -83,7 +83,7 @@ namespace SqlExtension.DbUnity
 
             classText = ModelTemplate.ClassTemplate;
           
-            classText = classText.Replace(ModelTemplate.KeyClassName, tableInfo.Name);
+            classText = classText.Replace(ModelTemplate.KeyClassName, tableInfo.Name.ToLargeCamelCase());
             classText = classText.Replace(ModelTemplate.KeyNamespace, _namespace);
             classText = classText.Replace(ModelTemplate.KeyUsing, ModelTemplate.UsingTemplate);
 

@@ -47,4 +47,25 @@ public static class Unit
         var isDanger = dangerStrArr.Exists(a => input.Contains(a));
         return isDanger;
     }
+
+    public static string ToLargeCamelCase(this string input)
+    {
+        if (input.IsNullOrWhiteSpace())
+        {
+            return input;
+        }
+
+        var arr = input.Split('_').ToList();
+        arr = arr.Select(item =>
+        {
+            if (item.Length > 0)
+            {
+                item = item[0].ToString().ToUpper() + item.Substring(1);
+            }
+            return item;
+        }).ToList();
+
+        var str = string.Join("", arr);
+        return str;
+    }
 }
