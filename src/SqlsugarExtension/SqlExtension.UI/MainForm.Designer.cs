@@ -45,6 +45,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -104,7 +105,7 @@
             // labelOutputDir
             // 
             this.labelOutputDir.AutoSize = true;
-            this.labelOutputDir.Location = new System.Drawing.Point(133, 142);
+            this.labelOutputDir.Location = new System.Drawing.Point(289, 143);
             this.labelOutputDir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOutputDir.Name = "labelOutputDir";
             this.labelOutputDir.Size = new System.Drawing.Size(79, 15);
@@ -182,12 +183,24 @@
             this.button5.TabIndex = 12;
             this.button5.Text = "生成已勾选模型文件";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(136, 135);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(146, 31);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "打开所在文件夹";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1641, 1068);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.treeDb);
@@ -228,6 +241,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 

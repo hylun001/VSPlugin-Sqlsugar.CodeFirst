@@ -158,5 +158,42 @@ namespace SqlExtension.UI
             SaveEntityFile(this.labelOutputDir.Text, curDatabase, curTable);
             ShowMsg("生成单个文件完成");
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (this.labelOutputDir.Text.IsNullOrWhiteSpace())
+            {
+                ShowMsg("时机未到");
+                return;
+            }
+
+            var curFileCount = 0;
+
+            foreach(TreeNode parentNode in this.treeDb.Nodes)
+            {
+                foreach(TreeNode tableNode in parentNode.Nodes)
+                {
+                    if (tableNode.Checked)
+                    {
+                        SaveEntityFile(this.labelOutputDir.Text, parentNode.Text, tableNode.Name);
+                        curFileCount++;
+                    }
+                }
+            }
+
+            ShowMsg($"生成勾选的文件完成, {curFileCount}个");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (this.labelOutputDir.Text.IsNullOrWhiteSpace())
+            {
+                return;
+            }
+
+            var psi = new System.Diagnostics.ProcessStartInfo("Explorer.exe");
+            psi.Arguments = " " + this.labelOutputDir.Text+"\\";
+            System.Diagnostics.Process.Start(psi);
+        }
     }
 }
