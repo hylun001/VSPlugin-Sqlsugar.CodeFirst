@@ -18,22 +18,25 @@ namespace SqlExtension.UI
         private readonly OpenFormDto CurFormData;
         public MainForm()
         {
-            CurFormData = new OpenFormDto();
-            CurFormData.ProjectList.Add(new ProjectDto
+            if (CurFormData == null)
             {
-                ProjectName = "SqlExtension.Core",
-                ProjectFullPath = @"F:\MyCode\SqlsugarVsExtension\src\SqlsugarExtension\SqlExtension.Core\SqlExtension.Core.csproj"
-            });
-            CurFormData.ProjectList.Add(new ProjectDto
-            {
-                ProjectName = "SqlsugarDemo",
-                ProjectFullPath = @"F:\MyCode\SqlsugarVsExtension\src\SqlsugarDemo\SqlsugarDemo\SqlsugarDemo.csproj"
-            });
-            CurFormData.ProjectList.Add(new ProjectDto
-            {
-                ProjectName = "Demo.SugarEntities",
-                ProjectFullPath = @"F:\MyCode\SqlsugarVsExtension\src\SqlsugarDemo\Demo.Entitys\Demo.SugarEntities.csproj"
-            });
+                CurFormData = new OpenFormDto();
+                CurFormData.ProjectList.Add(new ProjectDto
+                {
+                    ProjectName = "SqlExtension.Core",
+                    ProjectFullPath = @"F:\MyCode\SqlsugarVsExtension\src\SqlsugarExtension\SqlExtension.Core\SqlExtension.Core.csproj"
+                });
+                CurFormData.ProjectList.Add(new ProjectDto
+                {
+                    ProjectName = "SqlsugarDemo",
+                    ProjectFullPath = @"F:\MyCode\SqlsugarVsExtension\src\SqlsugarDemo\SqlsugarDemo\SqlsugarDemo.csproj"
+                });
+                CurFormData.ProjectList.Add(new ProjectDto
+                {
+                    ProjectName = "Demo.SugarEntities",
+                    ProjectFullPath = @"F:\MyCode\SqlsugarVsExtension\src\SqlsugarDemo\Demo.Entitys\Demo.SugarEntities.csproj"
+                });
+            }
 
             InitializeComponent();
 
@@ -44,7 +47,7 @@ namespace SqlExtension.UI
         {
             CurFormData = dto;
 
-            this.txtModelString.Text = dto.ToJsonString(true);
+            // this.txtModelString.Text = dto.ToJsonString(true);
         }
 
 

@@ -45,10 +45,23 @@ namespace SqlsugarExtension.Unit
                 }
             }
 
-            var projectList = list.Select(a=>new SqlExtension.Models.ProjectDto { 
-                ProjectName = a.Name,
-                ProjectFullPath = a.FileName
-            }).ToList();
+            var projectList = new List<SqlExtension.Models.ProjectDto>();
+
+            list.ForEach(a =>
+            {
+                try
+                {
+                    projectList.Add(new SqlExtension.Models.ProjectDto
+                    {
+                        ProjectName = a.Name,
+                        ProjectFullPath = a.FileName
+                    });
+                }
+                catch(Exception e)
+                {
+
+                }
+            });
 
             projectList = projectList.Where(a => !a.ProjectFullPath.IsNullOrWhiteSpace()).ToList();
 
